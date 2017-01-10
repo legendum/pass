@@ -14,6 +14,9 @@
  * > pass
  * my secret phrase
  *
+ * WARNING: using default salt "Himalayan"
+ *          please set your env variable PASS_SALT
+ *
  * QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
  *
  *

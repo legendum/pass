@@ -12,12 +12,15 @@ Third, run "pass" by passing a password phrase to the command "pass" like so:
 > pass
 my secret phrase
 
+WARNING: using default salt "Himalayan"
+         please set your env variable PASS_SALT
+
 QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
 ```
 
 (If you didn't setup the `PASS_SALT` environment variable, you should see this)
 
-Note that *all* passwords are 45 characters long and include 2 special chars.
+Note that passwords are at least 30 characters long and include 2 special chars.
 
 ## Example
 
