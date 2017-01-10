@@ -69,6 +69,7 @@ function pass(word) {
 
   if (salt === DEFAULT_SALT) {
     console.log(`\nWARNING: using default salt "${DEFAULT_SALT}"`);
+    console.log('         please set your env variable PASS_SALT');
   }
 
   if (pass.length === PASSWORD_LENGTH_CHECK) {
