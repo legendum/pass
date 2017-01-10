@@ -1,0 +1,81 @@
+#!/usr/bin/env node
+
+/*
+ * pass - create a strong password that's *easy* to regenerate from *memory*
+ *
+ * First, setup "pass" by exporting environment variable PASS_SALT to a word
+ * you're very likely to remember. Use the same word for every installation!
+ *
+ * Second, put the "pass" command somewhere in your PATH e.g. your "bin" folder.
+ *
+ * Third, run "pass" by passing a password phrase to the command "pass" like so:
+ *
+ *
+ * > pass
+ * my secret phrase
+ *
+ * 8&12zMfF~sP/Y53BJ/AkAdIH9QvqyxB8kL+pBPvm6Atb0
+ *
+ *
+ * (If you didn't setup the PASS_SALT environment variable, you should see this)
+ *
+ * Note that *all* passwords are 45 characters long and include 2 special chars.
+ */
+
+const DEFAULT_SALT = 'himalayan',
+      SPECIAL_CHAR = '~!@#$%^&*',
+      PASSWORD_LENGTH_CHECK = 43, // before we add 2 special characters
+      crypto = require('crypto'),
+      readline = require('readline');
+
+var rd = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+});
+
+rd.on('line', function(line) {
+  if (line.length === 0) {
+    console.error('please enter a pass word or phrase');
+  } else {
+    pass(line);
+    process.exit(0);
+  }
+});
+
+// reverse a string
+function reverse(s) {
+  return s.split('').reverse().join('');
+}
+
+// insert a special character
+function special(s) {
+  var code = 0;
+  for (var i = 0; i < s.length; i++) {
+    code += s.charCodeAt(i);
+  }
+  var char = SPECIAL_CHAR[ code % SPECIAL_CHAR.length ],
+      left = code & s.length;
+
+  return s.substr(0, left) + char + s.substr(left);
+}
+
+function pass(word) {
+  const salt = process.env.PASS_SALT || DEFAULT_SALT,
+        pass = crypto.createHmac('sha256', salt)
+                     .update(word)
+                     .digest('base64')
+                     .replace(/=/, '');
+
+  if (salt === DEFAULT_SALT) {
+    console.log(`\nWARNING: using default salt "${DEFAULT_SALT}"`);
+  }
+
+  if (pass.length === PASSWORD_LENGTH_CHECK) {
+    console.log('\n' + reverse( special( special(pass) ) ) + '\n');
+  } else {
+    console.error(`\nunexpected password length ${pass.length}\n`);
+  }
+}
+ 
+// EOF
