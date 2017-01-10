@@ -12,7 +12,7 @@ Third, run "pass" by passing a password phrase to the command "pass" like so:
 > pass
 my secret phrase
 
-QYYL96XiEsg+WmJt&~+ZJ/+DBY9+tOMZxjmBGjDgqG4xo
+QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
 ```
 
 (If you didn't setup the `PASS_SALT` environment variable, you should see this)
