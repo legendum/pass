@@ -46,7 +46,7 @@ rd.on('line', function(line) {
 
     pass(line);
 
-    interval = setInterval(function() { console.log(); process.exit(0); }, 500);
+    interval = setInterval(function() { console.log(); process.exit(0); }, 100);
   }
 });
 
