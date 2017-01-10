@@ -22,7 +22,7 @@
  * Note that *all* passwords are 45 characters long and include 2 special chars.
  */
 
-const DEFAULT_SALT = 'himalayan',
+const DEFAULT_SALT = 'Himalayan',
       SPECIAL_CHAR = '~!@#$%^&*',
       PASSWORD_LENGTH_CHECK = 43, // before we add 2 special characters
       crypto = require('crypto'),
@@ -55,7 +55,7 @@ function special(s) {
     code += s.charCodeAt(i);
   }
   var char = SPECIAL_CHAR[ code % SPECIAL_CHAR.length ],
-      left = code & s.length;
+      left = code % s.length;
 
   return s.substr(0, left) + char + s.substr(left);
 }
