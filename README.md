@@ -32,8 +32,8 @@ At Facebook, maybe the pass phrase would be "Facebook John Doe" instead.
 
 This would provide the following passwords:
 
-* Gmail: *Uwvf6g3cWrrM5M1IKk3VTQ54sqhDodd%zv40o5^d5qfL*
-* Facebook: *03n#E5b2yMmDpT@7zVvdlObc32bxnarX1IMtYYaj0Z*
+* Gmail: _Uwvf6g3cWrrM5M1IKk3VTQ54sqhDodd%zv40o5^d5qfL_
+* Facebook: _03n#E5b2yMmDpT@7zVvdlObc32bxnarX1IMtYYaj0Z_
 
 To crack your password, a hacker would need to know both your `PASS_SALT` value
 *and* your memorized formula for composing pass phrases. Obviously you should
