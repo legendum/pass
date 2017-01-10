@@ -19,12 +19,12 @@
  *
  * (If you didn't setup the PASS_SALT environment variable, you should see this)
  *
- * Note that *all* passwords are 45 characters long and include 2 special chars.
+ * Note: passwords are at least 30 characters long, and include 2 special chars.
  */
 
 const DEFAULT_SALT = 'Himalayan',
       SPECIAL_CHAR = '~!@#$%^&*',
-      PASSWORD_LENGTH_CHECK = 43, // before we add 2 special characters
+      MIN_PASSWORD_LENGTH = 30,
       crypto = require('crypto'),
       readline = require('readline');
 
@@ -65,14 +65,14 @@ function pass(word) {
         pass = crypto.createHmac('sha256', salt)
                      .update(word)
                      .digest('base64')
-                     .replace(/=/, '');
+                     .replace(/[^\w]/g, '');
 
   if (salt === DEFAULT_SALT) {
     console.log(`\nWARNING: using default salt "${DEFAULT_SALT}"`);
     console.log('         please set your env variable PASS_SALT');
   }
 
-  if (pass.length === PASSWORD_LENGTH_CHECK) {
+  if (pass.length >= MIN_PASSWORD_LENGTH) {
     console.log('\n' + reverse( special( special(pass) ) ) + '\n');
   } else {
     console.error(`\nunexpected password length ${pass.length}\n`);
