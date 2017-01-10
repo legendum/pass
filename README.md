@@ -6,7 +6,7 @@ you're very likely to remember. Use the same word for every installation!
 
 Second, put the "pass" command somewhere in your PATH e.g. your "bin" folder.
 
-Third, run "pass" by passing a password phrase to the command "pass" like so:
+Third, run "pass" by writing a password phrase to the command "pass" like so:
 
 ```
 > pass
@@ -32,10 +32,15 @@ At Facebook, maybe the pass phrase would be "Facebook John Doe" instead.
 
 This would provide the following passwords:
 
-* Gmail: Uwvf6g3cWrrM5M1IKk3VTQ54sqhDodd%zv40o5^d5qfL
-* Facebook: 03n#E5b2yMmDpT@7zVvdlObc32bxnarX1IMtYYaj0Z
+* Gmail: *Uwvf6g3cWrrM5M1IKk3VTQ54sqhDodd%zv40o5^d5qfL*
+* Facebook: *03n#E5b2yMmDpT@7zVvdlObc32bxnarX1IMtYYaj0Z*
 
 To crack your password, a hacker would need to know both your `PASS_SALT` value
 *and* your memorized formula for composing pass phrases. Obviously you should
-share neither of these with other people.
+share neither of these with other people. They'd also need this "pass" program,
+so you might want to keep this a secret too.
+
+I hope you find "pass" to be useful!
+
+Author: kevin.hutchinson@legendum.com
 

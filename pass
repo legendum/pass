@@ -8,7 +8,7 @@
  *
  * Second, put the "pass" command somewhere in your PATH e.g. your "bin" folder.
  *
- * Third, run "pass" by passing a password phrase to the command "pass" like so:
+ * Third, run "pass" by writing a password phrase to the command "pass" like so:
  *
  *
  * > pass
@@ -37,12 +37,16 @@ var rd = readline.createInterface({
   terminal: false
 });
 
+var interval = null;
 rd.on('line', function(line) {
   if (line.length === 0) {
     console.error('please enter a pass word or phrase');
   } else {
+    if (interval) { clearInterval(interval); }
+
     pass(line);
-    process.exit(0);
+
+    interval = setInterval(function() { process.exit(0); }, 500);
   }
 });
 
