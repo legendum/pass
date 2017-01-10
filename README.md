@@ -1,6 +1,12 @@
 # pass
 Create a strong password that's *easy* to regenerate from *memory*.
 
+## Requirements
+
+You'll need to setup [NodeJS](https://nodejs.org/) first.
+
+## Installation
+
 First, setup "pass" by exporting environment variable `PASS_SALT` to a word
 you're very likely to remember. Use the same word for every installation!
 
