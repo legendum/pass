@@ -15,7 +15,7 @@ my secret phrase
 WARNING: using default salt "Himalayan"
          please set your env variable PASS_SALT
 
-QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
+my secret phrase ===> QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
 ```
 
 (If you didn't setup the `PASS_SALT` environment variable, you should see this)

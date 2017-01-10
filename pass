@@ -17,7 +17,7 @@
  * WARNING: using default salt "Himalayan"
  *          please set your env variable PASS_SALT
  *
- * QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
+ * my secret phrase ===> QYYL96XiEs$gWmJtZJDBY9t$OMZxjmBGjDgqG4xo
  *
  *
  * (If you didn't setup the PASS_SALT environment variable, you should see this)
@@ -46,7 +46,7 @@ rd.on('line', function(line) {
 
     pass(line);
 
-    interval = setInterval(function() { process.exit(0); }, 500);
+    interval = setInterval(function() { console.log(); process.exit(0); }, 500);
   }
 });
 
@@ -80,7 +80,8 @@ function pass(word) {
   }
 
   if (pass.length >= MIN_PASSWORD_LENGTH) {
-    console.log('\n' + reverse( special( special(pass) ) ) + '\n');
+    var withTwoSpecialCharacters = reverse(special(special(pass)));
+     console.log('\n' + word + ' ===> ' + withTwoSpecialCharacters);
   } else {
     console.error(`\nunexpected password length ${pass.length}\n`);
   }
