@@ -1,5 +1,5 @@
 # pass
-create a strong password that's *easy* to regenerate from *memory*
+Create a strong password that's *easy* to regenerate from *memory*.
 
 First, setup "pass" by exporting environment variable `PASS_SALT` to a word
 you're very likely to remember. Use the same word for every installation!
@@ -32,8 +32,8 @@ At Facebook, maybe the pass phrase would be "Facebook John Doe" instead.
 
 This would provide the following passwords:
 
-* Gmail: _*Uwvf6g3cWrrM5M1IKk3VTQ54sqhDodd%zv40o5^d5qfL*_
-* Facebook: _*03n#E5b2yMmDpT@7zVvdlObc32bxnarX1IMtYYaj0Z*_
+* Gmail: __Uwvf6g3cWrrM5M1IKk3VTQ54sqhDodd%zv40o5^d5qfL__
+* Facebook: __03n#E5b2yMmDpT@7zVvdlObc32bxnarX1IMtYYaj0Z__
 
 To crack your password, a hacker would need to know both your `PASS_SALT` value
 *and* your memorized formula for composing pass phrases. Obviously you should
