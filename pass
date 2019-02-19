@@ -86,7 +86,7 @@ function pass(word) {
 
   if (pass.length >= MIN_PASSWORD_LENGTH) {
     var password = shorten(reverse(special(special(pass))));
-     console.log('\n' + word + ' ===> ' + password);
+    console.log('\n' + word + ' ===> ' + password);
   } else {
     console.error(`\nunexpected password length ${pass.length}\n`);
   }
