@@ -67,7 +67,7 @@ function special(s) {
   return s.substr(0, left) + char + s.substr(left);
 }
 
-function clip(word) {
+function shorten(word) {
   var length = parseInt(process.argv.pop()) || process.env.PASS_SIZE;
   return length > 0 ? word.substr(0, length) : word;
 }
@@ -85,8 +85,8 @@ function pass(word) {
   }
 
   if (pass.length >= MIN_PASSWORD_LENGTH) {
-    var withTwoSpecialCharacters = reverse(special(special(pass)));
-     console.log('\n' + word + ' ===> ' + clip(withTwoSpecialCharacters));
+    var password = shorten(reverse(special(special(pass))));
+     console.log('\n' + word + ' ===> ' + password);
   } else {
     console.error(`\nunexpected password length ${pass.length}\n`);
   }
