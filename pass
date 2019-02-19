@@ -67,6 +67,11 @@ function special(s) {
   return s.substr(0, left) + char + s.substr(left);
 }
 
+function clip(word) {
+  var length = parseInt(process.argv.pop()) || process.env.PASS_SIZE;
+  return length > 0 ? word.substr(0, length) : word;
+}
+
 function pass(word) {
   const salt = process.env.PASS_SALT || DEFAULT_SALT,
         pass = crypto.createHmac('sha256', salt)
@@ -81,7 +86,7 @@ function pass(word) {
 
   if (pass.length >= MIN_PASSWORD_LENGTH) {
     var withTwoSpecialCharacters = reverse(special(special(pass)));
-     console.log('\n' + word + ' ===> ' + withTwoSpecialCharacters);
+     console.log('\n' + word + ' ===> ' + clip(withTwoSpecialCharacters));
   } else {
     console.error(`\nunexpected password length ${pass.length}\n`);
   }
